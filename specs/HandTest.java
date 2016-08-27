@@ -38,4 +38,12 @@ public class HandTest {
     assertEquals(26, hand.getTotalValue());
   }
 
+  @Test
+  public void canGetNamesOfCards() {
+    hand.receiveACard(card2);
+    hand.receiveACard(card3);
+    hand.receiveACard(card4);
+    assertEquals("King of Spades, Nine of Hearts, Seven of Diamonds", hand.getNamesOfCards());
+  }
+
 }

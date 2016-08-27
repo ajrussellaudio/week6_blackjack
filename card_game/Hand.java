@@ -21,4 +21,14 @@ public class Hand extends CardStack {
     return total;
   }
 
+  public String getNamesOfCards() {
+    String output = "";
+    for(Card card : hand) {
+      output += card.getPrettyName();
+      output += ", ";
+    }
+    output = output.substring(0, output.length() - 2);
+    return output;
+  }
+
 }

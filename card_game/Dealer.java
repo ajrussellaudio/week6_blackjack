@@ -8,6 +8,8 @@ public class Dealer extends Player {
 
   public String showHand() {
     return "dealer.showHand";
+    // show first card
+    // hide second card until all players have played
   }
 
   public void playTurn() {

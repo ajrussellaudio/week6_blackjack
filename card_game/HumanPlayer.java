@@ -8,6 +8,7 @@ public class HumanPlayer extends Player {
 
   public String showHand() {
     return "human.showHand";
+    // show both cards
   }
 
   public void playTurn() {  
