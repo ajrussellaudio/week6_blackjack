@@ -21,7 +21,7 @@ public class CardTest {
     assertEquals(card.getRank(), RankType.THREE);
   }
 
-  // @Test
+  // @Test // obsolete
   // public void canGetValue(){
   //   assertEquals(card.getRank().getValue(), 3);
   // }
@@ -29,6 +29,11 @@ public class CardTest {
   @Test
   public void canGetValueDirect() {
     assertEquals(card.getValue(), 3);
+  }
+
+  @Test
+  public void canGetPrettyName() {
+    assertEquals("Three of Clubs", card.getPrettyName() );
   }
 
 }

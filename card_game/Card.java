@@ -18,8 +18,21 @@ public class Card {
     return rank;
   }
 
+  public String getPrettyName() {
+    return ( getPrettyName(rank) + " of " + getPrettyName(suit) );
+  }
+
   public int getValue() {
     return rank.getValue();
+  }
+
+  private String getPrettyName(Enum inputEnum) {
+    if(inputEnum.name().length() == 0 | inputEnum.name() == null) return null;
+    String name = inputEnum.name();
+    name = name.toLowerCase();
+    if(name.length() > 1) return name.substring(0, 1).toUpperCase() + name.substring(1);
+    if(name.length() > 0) return name.toUpperCase();
+    return null;
   }
 
 }
