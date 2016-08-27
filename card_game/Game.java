@@ -36,6 +36,14 @@ public class Game {
     this.players.add(new Dealer());
   }
 
+  public void dealCards() {
+    for(int i = 0; i < 2; i++) {
+      for(Player player : players) {
+        player.hand.receiveACard(this.deck.dealACard());
+      }
+    }  
+  }
+
   // private
 
   private Deck initDeck() {    
@@ -56,7 +64,7 @@ public class Game {
     return deck;
   }
 
-  public ArrayList players() {
+  public ArrayList<Player> players() {
     return players;
   }
 
