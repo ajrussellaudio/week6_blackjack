@@ -17,6 +17,14 @@ public class Hand {
     return hand.size();
   }
 
+  public int getTotalValue() {
+    int total = 0;
+    for (Card card : hand){
+      total += card.getValue();
+    }
+    return total;
+  }
+
 
 
 }
