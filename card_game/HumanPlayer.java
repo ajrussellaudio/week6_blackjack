@@ -10,4 +10,12 @@ public class HumanPlayer extends Player {
     return "human.showHand";
   }
 
+  public void playTurn() {  
+    // -- win if blackjack
+    // -- stick / twist?
+    // -- if twist deal new card to hand
+    // -- bust if total > 21
+    // -- if stick count total
+  }
+
 }

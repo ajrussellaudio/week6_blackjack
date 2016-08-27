@@ -5,7 +5,6 @@ public abstract class Player {
   protected Hand hand = new Hand();
 
   public abstract String showHand();
-
-
+  public abstract void playTurn();
 
 }
