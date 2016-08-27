@@ -1,15 +1,12 @@
-// package card_game;
+package card_game;
+import java.util.*;
 
-// public abstract class CardStack {
+public abstract class CardStack {
 
-//   private ArrayList<Card> stack;
+  protected ArrayList<Card> cardStack = new ArrayList<Card>();
 
-//   public int getCount(){
-//       return stack.size();
-//   }
+  public int getCount(){
+      return cardStack.size();
+  }
 
-
-
-
-
-// } 
+} 

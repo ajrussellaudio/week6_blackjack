@@ -1,12 +1,12 @@
 package card_game;
 import java.util.*;
 
-public class Deck{
+public class Deck extends CardStack {
 
   private ArrayList<Card> deck;
 
   public Deck(){
-    this.deck = new ArrayList<Card>();
+    this.deck = super.cardStack;
   }
 
   public void fullDeck(){
@@ -17,10 +17,6 @@ public class Deck{
     }
   }
 
-  public int getCount(){
-    return deck.size();
-  }
-
   public Card dealACard(){
     Card card = deck.remove(0);
     return card;
@@ -29,6 +25,5 @@ public class Deck{
   public void shuffle() {
     Collections.shuffle(this.deck); 
   }
-
 
 }

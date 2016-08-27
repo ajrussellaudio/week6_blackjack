@@ -1,20 +1,16 @@
 package card_game;
 import java.util.*;
 
-public class Hand {
+public class Hand extends CardStack {
 
   private ArrayList<Card> hand;
 
   public Hand(){
-    this.hand = new ArrayList<Card>();
+    this.hand = super.cardStack;
   }
 
   public void receiveACard(Card card){
     hand.add(card);
-  }
-
-  public int getCount(){
-    return hand.size();
   }
 
   public int getTotalValue() {
