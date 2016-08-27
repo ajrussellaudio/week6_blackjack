@@ -20,15 +20,16 @@ public class Game {
   private ArrayList<Player> players = new ArrayList<Player>();
   Scanner userInput = new Scanner(System.in);
 
-  public Game() {
-    this.deck = initDeck();
-    // initPlayers();
-  }
-
-  public void initPlayers(int numPlayers) {
+  public Game(int numPlayers) {
     if(numPlayers == 0){
       numPlayers = getNumOfPlayers();
     }
+    initPlayers(numPlayers);
+    this.deck = initDeck();
+    deck.shuffle();
+  }
+
+  public void initPlayers(int numPlayers) {
     for(int i = 0; i < numPlayers; i++){
       this.players.add(new HumanPlayer());
     }

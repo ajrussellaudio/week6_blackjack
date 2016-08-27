@@ -8,7 +8,7 @@ public class GameTest {
 
   @Before
   public void before() {
-    this.game = new Game();
+    this.game = new Game(3);
   }
 
   @Test
@@ -19,9 +19,12 @@ public class GameTest {
 
   @Test
   public void canInitPlayers() {
-    int numPlayers = 6;
-    game.initPlayers(numPlayers);
-    assertEquals( 7, game.players().size() ); // 6 + 1 Dealer
+    assertEquals( 4, game.players().size() ); // 3 + 1 Dealer
+  }
+
+  @Test
+  public void canDealCards() {
+
   }
 
 }
