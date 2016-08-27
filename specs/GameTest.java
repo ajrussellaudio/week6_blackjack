@@ -26,7 +26,7 @@ public class GameTest {
   public void canDealCards() {
     game.dealCards();
     Player player = game.players().get(0);
-    assertEquals( 2, player.hand.getCount());
+    assertEquals( 2, player.hand().getCount());
   }
 
 }

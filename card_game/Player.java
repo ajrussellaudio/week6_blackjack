@@ -2,9 +2,13 @@ package card_game;
 
 public abstract class Player {
 
-  public Hand hand = new Hand();
+  protected Hand hand = new Hand();
 
   public abstract String showHand();
   public abstract void playTurn();
+
+  public Hand hand() {
+    return this.hand;
+  }
 
 }
