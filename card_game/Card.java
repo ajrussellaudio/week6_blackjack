@@ -2,8 +2,8 @@ package card_game;
 
 public class Card {
 
-  RankType rank;
-  SuitType suit;
+  private RankType rank;
+  private SuitType suit;
 
   public Card(RankType rank, SuitType suit) {
     this.rank = rank;
