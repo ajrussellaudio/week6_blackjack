@@ -13,7 +13,7 @@ public abstract class Player {
   }
 
   public boolean checkBlackjack() {
-    if(hand.getCount() == 2 | hand.getTotalValue() == 21){
+    if(hand.getCount() == 2 & hand.getTotalValue() == 21){
       return true;
     }
     return false;

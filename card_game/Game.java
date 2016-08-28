@@ -17,9 +17,9 @@ import java.util.Scanner;
 
 public class Game {
 
-  private Deck deck;
-  private ArrayList<Player> players;
-  private Dealer dealer;
+  Deck deck;
+  ArrayList<Player> players;
+  Dealer dealer;
   Scanner userInput = new Scanner(System.in);
 
   public Game(int numPlayers) {
@@ -48,26 +48,6 @@ public class Game {
     }  
   }
 
-  public void play() {
-    System.out.println(dealer.hiddenHand());
-    for(Player player : players){
-      // if(player.checkBlackjack()) continue;
-      while(true) {
-        player.statusReport();
-        if(player.getScore() > 21){ 
-          System.out.println("[BUST!]");
-          break; 
-        }
-        boolean twist = player.twist();
-        if(twist == true) { dealCard(player); }
-        if(twist == false) { break; }
-        
-      }
-    }
-    ArrayList<String> winList = checkWinners();
-    System.out.println(winList);
-  }
-
   public ArrayList<String> checkWinners() {
     ArrayList<String> winOrLose = new ArrayList<String>();
     for(int i = 0; i < (players.size() - 1); i++){
@@ -75,6 +55,10 @@ public class Game {
       winOrLose.add(checkWinStatus(player, dealer));
     }
     return winOrLose;
+  }
+
+  public void dealCard(Player player) {
+    player.hand.receiveACard(deck.dealACard());
   }
 
   // private
@@ -85,14 +69,9 @@ public class Game {
     return newDeck;
   }
 
-  private int getNumOfPlayers() { // for live 
-    System.out.println("\nHow many players?");
+  private int getNumOfPlayers() { // for live
     int numPlayers = Integer.parseInt(userInput.next());
     return numPlayers;
-  }
-
-  private void dealCard(Player player) {
-    player.hand.receiveACard(deck.dealACard());
   }
 
   private String checkWinStatus(Player player, Player dealer) {    

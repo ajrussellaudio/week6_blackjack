@@ -1,6 +1,7 @@
 package card_game;
 
 import java.util.Scanner;
+import java.util.*;
 
 public class HumanPlayer extends Player {
 
@@ -21,10 +22,20 @@ public class HumanPlayer extends Player {
   }
 
   public boolean twist() {
-    System.out.println("\nStick or twist?");
+    ArrayList<String> twistCommands = twistCommands();
     String input = userInput.next();
-    if(input.equals("twist")) return true;
+    if( twistCommands.contains(input.toLowerCase()) ) return true;
     return false;
+  }
+
+  private ArrayList<String> twistCommands() {
+    ArrayList<String> list = new ArrayList<String>();
+    list.add("twist");
+    list.add("tw");
+    list.add("t");
+    list.add("hit");
+    list.add("hit me");
+    return list;
   }
 
 }
