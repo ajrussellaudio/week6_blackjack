@@ -7,7 +7,7 @@
 // player turns √
 // check if dealer has blackjack √
 // dealer turn √
-// compare totals (each player to dealer)
+// compare totals (each player to dealer) √
 // go to (bet) (start draw)
 
 package card_game;
@@ -40,7 +40,7 @@ public class Game {
   public void dealCards() {
     for(int i = 0; i < 2; i++) {
       for(Player player : players) {
-        player.hand.receiveACard(deck.dealACard());
+        dealCard(player);
       }
     }  
   }
@@ -48,7 +48,9 @@ public class Game {
   public void play() {
     for(Player player : players){
       if(player.checkBlackjack()) continue;
-      player.playTurn();
+      for(int i = player.getScore(); i < 21; i = player.getScore()) {
+        if(player.twist()) dealCard(player);
+      }
     }
     ArrayList<String> winList = checkWinners();
   }
@@ -75,6 +77,10 @@ public class Game {
     System.out.println("\nHow many players?");
     int numPlayers = Integer.parseInt(userInput.next());
     return numPlayers;
+  }
+
+  private void dealCard(Player player) {
+    player.hand.receiveACard(deck.dealACard());
   }
 
   private String checkWinStatus(Player player, Player dealer) {    

@@ -5,7 +5,7 @@ public abstract class Player {
   public Hand hand = new Hand();
 
   public abstract String showHand();
-  public abstract void playTurn();
+  public abstract boolean twist();
 
   public Hand hand() {
     return this.hand;

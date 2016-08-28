@@ -7,16 +7,22 @@ public class HumanPlayer extends Player {
   }
 
   public String showHand() {
-    return "human.showHand";
-    // show both cards
+    String output = "Your hand is: " + hand.getNamesOfCards();
+    return output;
   }
 
-  public void playTurn() {  
-    // -- win if blackjack
-    // -- stick / twist?
-    // -- if twist deal new card to hand
-    // -- bust if total > 21
-    // -- if stick count total
+  public String showScore() {
+    String output = "Your score is: " + getScore();
+    return output;
+  }
+
+  public boolean twist() {
+    return true;
+  }
+
+  private void statusReport() {
+    System.out.println(showHand());
+    System.out.println(showScore());
   }
 
 }
