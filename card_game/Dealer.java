@@ -13,7 +13,7 @@ public class Dealer extends Player {
 
   public String hiddenHand() {
     Card firstCard = hand.firstCard();
-    return "Dealer has two cards, and shows the " + firstCard.getPrettyName();
+    return firstCard.getPrettyName();
   }
 
   public String showScore() {
