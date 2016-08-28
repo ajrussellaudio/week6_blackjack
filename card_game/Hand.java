@@ -15,8 +15,11 @@ public class Hand extends CardStack {
 
   public int getTotalValue() {
     int total = 0;
-    for (Card card : hand){
+    for(Card card : hand){
       total += card.getValue();
+    }
+    for(Card card : hand){
+      if(total < 12 & card.getRank() == RankType.ACE) { total += 10; }
     }
     return total;
   }

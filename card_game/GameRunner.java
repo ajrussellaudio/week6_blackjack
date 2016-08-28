@@ -19,7 +19,7 @@ public class GameRunner {
   }
 
   private static void play() {
-    System.out.println(game.dealer.hiddenHand());
+    System.out.println(game.dealer.hiddenHand() + "\n");
     int playerCount = 0;
     for(Player player : game.players){
       boolean isDealer = (player == game.dealer);
