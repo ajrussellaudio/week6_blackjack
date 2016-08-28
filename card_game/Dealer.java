@@ -13,7 +13,6 @@ public class Dealer extends Player {
   }
 
   public void playTurn() {
-    // -- win if blackjack
     // -- twist if total <= 16
     // -- stick if total >= 17
     // -- bust if total > 21

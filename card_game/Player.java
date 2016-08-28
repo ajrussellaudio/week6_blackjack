@@ -18,4 +18,8 @@ public abstract class Player {
     return false;
   }
 
+  public int getScore() {
+    return hand.getTotalValue();
+  }
+
 }
