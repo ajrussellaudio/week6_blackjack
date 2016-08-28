@@ -18,4 +18,18 @@ public class PlayerTest {
     assertEquals("human.showHand", human.showHand());
   }
 
+  @Test
+  public void canCheckBlackJack() {
+    human.hand.receiveACard(new Card(RankType.ACE, SuitType.SPADES));
+    human.hand.receiveACard(new Card(RankType.JACK, SuitType.CLUBS));
+    assertEquals( true, human.checkBlackjack() );
+  }
+
+  @Test
+  public void canCheckBlackJack_false() {
+    human.hand.receiveACard(new Card(RankType.KING, SuitType.SPADES));
+    human.hand.receiveACard(new Card(RankType.JACK, SuitType.CLUBS));
+    assertEquals( true, human.checkBlackjack() );
+  }
+
 }

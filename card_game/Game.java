@@ -1,8 +1,8 @@
-// init deck
-// shuffle deck
-// init players (array with dealer last)
+// init deck √
+// shuffle deck √
+// init players (array with dealer last) √
 // (bet)
-// deal cards
+// deal cards √
 // check if any players have blackjack (pay out)
 // player turns
 // check if dealer has blackjack
@@ -39,10 +39,12 @@ public class Game {
   public void dealCards() {
     for(int i = 0; i < 2; i++) {
       for(Player player : players) {
-        player.hand.receiveACard(this.deck.dealACard());
+        player.hand.receiveACard(deck.dealACard());
       }
     }  
   }
+
+  
 
   // private
 
