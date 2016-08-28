@@ -1,6 +1,10 @@
 package card_game;
 
+import java.util.Scanner;
+
 public class HumanPlayer extends Player {
+
+  Scanner userInput = new Scanner(System.in);
 
   public HumanPlayer() {
     this.hand = super.hand;
@@ -17,12 +21,10 @@ public class HumanPlayer extends Player {
   }
 
   public boolean twist() {
-    return true;
-  }
-
-  private void statusReport() {
-    System.out.println(showHand());
-    System.out.println(showScore());
+    System.out.println("\nStick or twist?");
+    String input = userInput.next();
+    if(input.equals("twist")) return true;
+    return false;
   }
 
 }

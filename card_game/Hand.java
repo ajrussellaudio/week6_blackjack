@@ -31,4 +31,8 @@ public class Hand extends CardStack {
     return output;
   }
 
+  public Card firstCard() {
+    return hand.get(0);
+  }
+
 }

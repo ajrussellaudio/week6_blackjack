@@ -14,10 +14,12 @@ package card_game;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class Game {
 
   private Deck deck;
   private ArrayList<Player> players;
+  private Dealer dealer;
   Scanner userInput = new Scanner(System.in);
 
   public Game(int numPlayers) {
@@ -35,6 +37,7 @@ public class Game {
       this.players.add(new HumanPlayer());
     }
     this.players.add(new Dealer());
+    this.dealer = (Dealer)players.get(players.size() - 1);
   }
 
   public void dealCards() {
@@ -46,21 +49,30 @@ public class Game {
   }
 
   public void play() {
+    System.out.println(dealer.hiddenHand());
     for(Player player : players){
-      if(player.checkBlackjack()) continue;
-      for(int i = player.getScore(); i < 21; i = player.getScore()) {
-        if(player.twist()) dealCard(player);
+      // if(player.checkBlackjack()) continue;
+      while(true) {
+        player.statusReport();
+        if(player.getScore() > 21){ 
+          System.out.println("[BUST!]");
+          break; 
+        }
+        boolean twist = player.twist();
+        if(twist == true) { dealCard(player); }
+        if(twist == false) { break; }
+        
       }
     }
     ArrayList<String> winList = checkWinners();
+    System.out.println(winList);
   }
 
   public ArrayList<String> checkWinners() {
     ArrayList<String> winOrLose = new ArrayList<String>();
-    Player dealer = players.get(players.size() - 1);
     for(int i = 0; i < (players.size() - 1); i++){
       Player player = players.get(i);
-      winOrLose.set(i, checkWinStatus(player, dealer));
+      winOrLose.add(checkWinStatus(player, dealer));
     }
     return winOrLose;
   }

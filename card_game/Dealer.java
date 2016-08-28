@@ -7,13 +7,23 @@ public class Dealer extends Player {
   }
 
   public String showHand() {
-    return "dealer.showHand";
-    // show first card
-    // hide second card until all players have played
+    String output = "Dealer's hand is: " + hand.getNamesOfCards();
+    return output;
+  }
+
+  public String hiddenHand() {
+    Card firstCard = hand.firstCard();
+    return "Dealer has two cards, and shows the " + firstCard.getPrettyName();
+  }
+
+  public String showScore() {
+    String output = "Dealer's score is: " + getScore();
+    return output;
   }
 
   public boolean twist() {
-    return true;
+    if(getScore() <= 16) return true;
+    return false; // stand on 17
   }
 
 }
