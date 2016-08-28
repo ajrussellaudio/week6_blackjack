@@ -74,7 +74,8 @@ public class Game {
     return numPlayers;
   }
 
-  private String checkWinStatus(Player player, Player dealer) {    
+  private String checkWinStatus(Player player, Player dealer) {   
+    if(player.hand.getCount() >= 5 & player.getScore() <= 21) { return "win"; } 
     if(dealer.getScore() > 21) { return "win"; }
     if(player.getScore() > 21) { return "lose"; }
     if(player.getScore() > dealer.getScore()) { return "win"; }
